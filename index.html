@@ -471,24 +471,25 @@
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
                         <script>
-                                $(document).ready(function() {
-                                $('.mySelect').select2({
-                                    placeholder: "اختر من القائمة",
-                                    allowClear: true
-                                });
-                            
-                                // ضبط placeholder لحقل البحث داخل select2 وإظهار العنصر المختار
-                                $('.mySelect').on('select2:open', function() {
-                                    // الحصول على قيمة العنصر المختار
-                                    let selectedOption = $(this).find(':selected').text();
-                                    
-                                    // الوصول لحقل البحث في select2
-                                    let searchField = $('.select2-container .select2-search__field');
-                                    
-                                    // ضبط placeholder ليظهر العنصر المختار أو "ابحث هنا" إذا لم يكن هناك عنصر مختار
-                                    searchField.attr('placeholder', selectedOption || 'ابحث هنا');
-                                });
-                            });
+                    $(document).ready(function() {
+                        $('.mySelect').select2({
+                         placeholder: "اختر من القائمة",
+                         allowClear: true
+                        });
+
+                       // ضبط placeholder لحقل البحث داخل select2 وإظهار العنصر المختار
+                      $('.mySelect').on('select2:open', function() {
+                      // الوصول لحقل البحث في select2
+                       let searchField = $('.select2-container .select2-search__field');
+        
+                      // إزالة التركيز عن حقل البحث
+                       searchField.blur();
+
+                       // ضبط placeholder ليظهر العنصر المختار أو "ابحث هنا" إذا لم يكن هناك عنصر مختار
+                       let selectedOption = $(this).find(':selected').text();
+                       searchField.attr('placeholder', selectedOption || 'ابحث هنا');
+                        });
+                    });
                         </script>
 
 
