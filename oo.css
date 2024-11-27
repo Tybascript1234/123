@@ -131,6 +131,10 @@ body .select2-container .select2-selection--single {
         cursor: default;
         filter: opacity(0.5);
     }
+    body .select2-container .select2-search__field:focus {
+        outline: none;
+        border: none;
+    }
 
 
 
